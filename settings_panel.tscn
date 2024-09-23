@@ -1,0 +1,93 @@
+[gd_scene load_steps=3 format=3 uid="uid://cuxkmh3x7h0n5"]
+
+[ext_resource type="Script" path="res://scripts/SettingsPanel.gd" id="1_x6oeh"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_214yn"]
+
+[node name="SettingsPanel" type="Panel"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+theme_override_styles/panel = SubResource("StyleBoxEmpty_214yn")
+script = ExtResource("1_x6oeh")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme_override_constants/separation = 8
+
+[node name="GridContainer" type="GridContainer" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+theme_override_constants/h_separation = 8
+theme_override_constants/v_separation = 8
+columns = 2
+
+[node name="AxiomLabel" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer/GridContainer"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+text = "Axiom"
+
+[node name="AxiomTextEdit" type="TextEdit" parent="MarginContainer/HBoxContainer/VBoxContainer/GridContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 32)
+layout_mode = 2
+size_flags_horizontal = 3
+placeholder_text = "X"
+
+[node name="AngleLabel" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer/GridContainer"]
+layout_mode = 2
+text = "Angle"
+
+[node name="AngleTextEdit" type="TextEdit" parent="MarginContainer/HBoxContainer/VBoxContainer/GridContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 32)
+layout_mode = 2
+placeholder_text = "20"
+
+[node name="RulesLabel" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer/GridContainer"]
+layout_mode = 2
+text = "Rules"
+
+[node name="AddRuleButton" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer/GridContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Add"
+
+[node name="RulesContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="GenerateButton" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Generate"
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="ActionsLabel" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+text = "Actions"
+
+[node name="ActionsList" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer2"]
+unique_name_in_owner = true
+layout_mode = 2

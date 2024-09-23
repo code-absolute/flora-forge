@@ -1,0 +1,42 @@
+[gd_scene load_steps=6 format=3 uid="uid://dypkhbb626fie"]
+
+[ext_resource type="Script" path="res://scripts/LSystem2D.gd" id="1"]
+[ext_resource type="PackedScene" uid="uid://cuxkmh3x7h0n5" path="res://settings_panel.tscn" id="2_sq80m"]
+[ext_resource type="Texture2D" uid="uid://cllbxxpih0cdr" path="res://assets/tree_bark.jpg" id="3_4hwob"]
+
+[sub_resource type="Environment" id="1"]
+background_mode = 4
+glow_enabled = true
+glow_intensity = 1.4
+glow_strength = 1.14
+glow_blend_mode = 1
+glow_hdr_threshold = 0.79
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mo3ik"]
+size = Vector2(51, 200)
+
+[node name="MainScene" type="Node2D" node_paths=PackedStringArray("settings_panel")]
+script = ExtResource("1")
+settings_panel = NodePath("SettingsPanel")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("1")
+
+[node name="LineContainer" type="Line2D" parent="."]
+
+[node name="SettingsPanel" parent="." instance=ExtResource("2_sq80m")]
+
+[node name="TreeContainer" type="Node2D" parent="."]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="TreeContainer"]
+position = Vector2(949, 420)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TreeContainer/StaticBody2D"]
+position = Vector2(0.5, 0)
+shape = SubResource("RectangleShape2D_mo3ik")
+
+[node name="Polygon2D" type="Polygon2D" parent="TreeContainer/StaticBody2D/CollisionShape2D"]
+texture_repeat = 2
+texture = ExtResource("3_4hwob")
+texture_scale = Vector2(2, 2)
+polygon = PackedVector2Array(25, 100, -25, 100, -25, -100, 25, -100)
